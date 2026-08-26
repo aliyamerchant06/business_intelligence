@@ -13,7 +13,7 @@ Exploratory Data Mining (Weeks 13-14)
 
 
 
-\## Skills
+## Skills
 
 * Git
 * R
