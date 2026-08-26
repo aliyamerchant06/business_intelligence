@@ -1,9 +1,9 @@
-## ISA 401: Business Intelligence \& Data Visualization
+### ISA 401: Business Intelligence \& Data Visualization
 Aliya Merchant
 Semester: Fall 2026
 
 
-#Course Topics
+## Course Topics
 
 Data Acquisition \& Transformation (Weeks 1-8)
 
