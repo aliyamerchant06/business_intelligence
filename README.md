@@ -1,6 +1,8 @@
 # ISA 401: Business Intelligence \& Data Visualization
+
 Aliya Merchant
 Semester: Fall 2026
+
 
 
 ## Course Topics
@@ -17,6 +19,5 @@ Exploratory Data Mining (Weeks 13-14)
 
 * Git
 * R
-
-
+* Tableau
 
