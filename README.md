@@ -18,3 +18,12 @@ Data Visualization \& Communication (Weeks 8-13)
 
 Exploratory Data Mining (Weeks 13-14)
 
+
+
+\## Skills
+
+* Git
+* R
+
+
+
