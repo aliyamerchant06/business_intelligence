@@ -1,0 +1,55 @@
+---
+title: "Classs 5"
+author: "Aliya Merchant"
+date: "2026-09-09"
+output: 
+  html_document: 
+    toc: true
+    toc_float: true
+    code_download: true
+    code_folding: show
+    theme: simplex
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# reading the excel file
+```{r occupations}
+occupation = readxl::read_excel(
+  path = "../data/occupation.xlsx",
+  sheet=5,  #sheet = "Table 1.4 "
+  skip = 1 
+)
+
+#when you subset in R drops these specific things
+#give that they are three, I put them in a vector
+#notice the "," after the paretheses
+#nothing after the comma whichmeansall columns
+#instead of that space --> 1:7
+occupation = occupation[-c(32,33,34), ] 
+occupation = occupation[1:31, ]
+```
+
+```{r read_json}
+json_url = 
+  "https://data.cincinnati-oh.gov/resource/rvmt-pkmq.json?$limit=100"
+
+crashes_json = jsonlite::fromJSON(json_url)
+dplyr::glimpse(crashes_json)
+
+```
+
+## Game 02
+```{r}
+logins = readr::read_csv("../data/stage1.csv")
+
+log = jsonlite::fromJSON("https://isa401-import-heist.vercel.app/api/stage2?key=smith31")
+
+events_df = log$events # 6 files were downloaded
+
+jsonlite::fromJSON("https://isa401-import-heist.vercel.app/api/finish?code=NUMBER6")
+
+
+```
+
