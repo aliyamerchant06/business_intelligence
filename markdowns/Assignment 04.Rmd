@@ -1,0 +1,42 @@
+---
+title: "Assignment 04"
+author: "Aliya Merchant"
+date: "2026-09-11"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+install.packages("RSQLite")
+library(RSQLite)
+
+```
+```{r}
+con = DBI::dbConnect(RSQLite::SQLite(), "data/midwest_airbnb.db")
+listings = DBI::dbReadTable(con, "listings")
+```
+
+```{r}
+nrow(listings)
+```
+```{r}
+names(listings)
+```
+```{r}
+table(listings$ city)[1]
+```
+```{r}
+chicago <- listings[listings$city == "Chicago", ]
+chicago[which.max(chicago$price), c("name", "price")]
+```
+```{r}
+
+```
+
+
+
+
+
