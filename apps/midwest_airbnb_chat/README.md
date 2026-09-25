@@ -1,6 +1,7 @@
 # ISA 401 Job Scout Chat
 
 ** Live App: ** https://midwest-airbnb-chat-ypw8.onrender.com
+
 **Ask a question in plain English, get the SQL and a table back**
 
 A twelve-line [querychat](https://github.com/posit-dev/querychat) app built in ISA 401 (Miami University) on the job postings that [ChatISA](https://chatisa.fsb.miamioh.edu) Job Scout collected. It is the starting point for Assignment 05, where you rebuild it on the Airbnb data, deploy it to [Render](https://render.com) from your GitHub repository, and then improve it.
