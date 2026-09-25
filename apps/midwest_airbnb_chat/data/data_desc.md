@@ -1,24 +1,35 @@
-# Midwest Airbnb Listings: Data Dictionary
+# Midwest Airbnb Data Dictionary
 
-**Dataset:** `listings` table in `midwest_airbnb.db` (SQLite), 14,887 rows and 29 columns
-**Source:** Inside Airbnb (https://insideairbnb.com/get-the-data/), the detailed `listings.csv.gz` file for each of three regions: Chicago (snapshot 2026-07-20), Columbus (snapshot 2026-07-23), and Twin Cities MSA (snapshot 2026-07-21). Column meanings follow Inside Airbnb's data dictionary and assumptions (https://insideairbnb.com/data-assumptions/).
-**Course:** ISA 401, Miami University
+This dataset contains 14,887 Airbnb listings from Chicago, Columbus, and the Twin Cities. Each row represents one Airbnb listing.
 
-> One row is one listing that showed a nightly price on the snapshot date; listings with no price were dropped. Empty cells are stored as SQL `NULL`.
-
----
-
-## Field Definitions
-
-| Field | Type | Description |
-|---|---|---|
-| `city` | text | Which Inside Airbnb region the listing came from: `Chicago` (7,439 rows), `Columbus` (2,587), or `Twin Cities` (4,861). The Twin Cities file covers the Minneapolis-St. Paul metro area, not just the two cities. |
-| `snapshot_date` | text | Date Inside Airbnb compiled the file, stored as an ISO text string, not a date: `2026-07-20` for Chicago, `2026-07-23` for Columbus, `2026-07-21` for Twin Cities. Every row of a city shares the same value. |
-| `id` | text | Airbnb's listing id. Unique across the table (14,887 distinct values). Stored as text even though it looks numeric, so compare it to a quoted string. |
-| `name` | text | Listing title as shown on Airbnb (for example "Tiny Studio Apartment 94 Walk Score"). Never empty. |
-| `price` | real | Nightly price in U.S. dollars on the snapshot date, with the dollar sign and commas removed. Ranges from 2.56 to 11,412; never `NULL` (rows without a price were dropped). |
-| `room_type` | text | Airbnb's four listing categories: `Entire home/apt` (11,652 rows), `Private room` (2,951), `Hotel room` (246), or `Shared room` (38). |
-
-Continue the table for the remaining 23 columns (Assignment 05): `host_id`, `host_name`, `host_since`, `host_is_superhost`, `neighbourhood`, `latitude`, `longitude`, `property_type`, `accommodates`, `bedrooms`, `beds`, `bathrooms_text`, `minimum_nights`, `availability_365`, `number_of_reviews`, `number_of_reviews_ltm`, `first_review`, `last_review`, `review_scores_rating`, `reviews_per_month`, `instant_bookable`, `estimated_revenue_l365d`, `amenities_count`.
-
-Two hints: `neighbourhood` is Inside Airbnb's `neighbourhood_cleansed` column, and `amenities_count` is not an Inside Airbnb column; it was computed for this course as the number of items in each listing's `amenities` list. Everything else keeps its Inside Airbnb name, so the data dictionary linked above explains it.
+| Column | Type | Description | Example / Notes |
+|---|---|---|---|
+| `city` | TEXT | City or metropolitan area where the Airbnb listing is located. | Chicago, Columbus, or Twin Cities |
+| `snapshot_date` | TEXT | Date when the Airbnb data for the city was collected. | Chicago: 2026-07-20; Columbus: 2026-07-23; Twin Cities: 2026-07-21 |
+| `id` | TEXT | Unique identifier assigned to the Airbnb listing. | Used to distinguish individual listings |
+| `name` | TEXT | Title or name of the Airbnb listing provided by the host. | Example: "Cozy Downtown Apartment" |
+| `host_id` | TEXT | Unique identifier assigned to the host of the listing. | A host may have more than one listing |
+| `host_name` | TEXT | Display name of the host associated with the listing. | May be a person's name or business name |
+| `host_since` | TEXT | Date the host first joined Airbnb. | Stored as a date |
+| `host_is_superhost` | TEXT | Indicates whether the host has Airbnb Superhost status. | Typically `t` for true or `f` for false |
+| `neighbourhood` | TEXT | Neighborhood in which the listing is located. | Neighborhood names are based on geographic location |
+| `latitude` | REAL | Approximate north-south geographic coordinate of the listing. | Decimal-degree coordinate; location is anonymized by Airbnb |
+| `longitude` | REAL | Approximate east-west geographic coordinate of the listing. | Decimal-degree coordinate; location is anonymized by Airbnb |
+| `property_type` | TEXT | Detailed type of property being offered. | Examples may include entire condo, private room, or entire rental unit |
+| `room_type` | TEXT | General category describing how much of the property the guest rents. | Examples: Entire home/apt, Private room, Shared room, Hotel room |
+| `accommodates` | INTEGER | Maximum number of guests the listing is designed to accommodate. | Example: 2, 4, 6, or 10 guests |
+| `bedrooms` | REAL | Number of bedrooms available in the listing. | May contain missing values |
+| `beds` | REAL | Number of beds available to guests. | May contain missing values |
+| `bathrooms_text` | TEXT | Text description of the number and type of bathrooms. | Examples: "1 bath", "2 baths", or "1 shared bath" |
+| `price` | REAL | Nightly listing price in U.S. dollars. | Numeric nightly price |
+| `minimum_nights` | INTEGER | Minimum number of nights a guest must book for a stay. | Example: 1, 2, 3, or more nights |
+| `availability_365` | INTEGER | Number of days the listing is shown as available during the next 365 days. | Range: 0–365; unavailable days may be booked or blocked by the host |
+| `number_of_reviews` | INTEGER | Total number of reviews the listing has received. | 0 or greater |
+| `number_of_reviews_ltm` | INTEGER | Number of reviews the listing received during the last twelve months. | LTM = last twelve months |
+| `first_review` | TEXT | Date of the earliest recorded review for the listing. | May be missing for listings with no reviews |
+| `last_review` | TEXT | Date of the most recent recorded review for the listing. | May be missing for listings with no reviews |
+| `review_scores_rating` | REAL | Overall guest review rating for the listing. | Higher values represent stronger guest ratings; may be missing for listings without enough reviews |
+| `reviews_per_month` | REAL | Average number of reviews the listing receives per month. | May be missing for listings with no reviews |
+| `instant_bookable` | TEXT | Indicates whether guests can book the listing immediately without waiting for host approval. | Typically `t` for true or `f` for false |
+| `estimated_revenue_l365d` | REAL | Estimated listing revenue during the last 365 days based on the available listing and booking-related data. | L365D = last 365 days; this is an estimate rather than actual host-reported revenue |
+| `amenities_count` | INTEGER | Number of amenities listed for the property. | Examples include Wi-Fi, kitchen, parking, air conditioning, etc. |
