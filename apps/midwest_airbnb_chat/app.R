@@ -39,12 +39,16 @@ ui <- page_sidebar(
     p("Chicago snapshot: 2026-07-20"),
     p("Columbus snapshot: 2026-07-23"),
     p("Twin Cities snapshot: 2026-07-21"),
-    p("Built by Aliya Merchant.")
+    p("Built by Aliya Merchant")
   )
 )
 
 server <- function(input, output, session) {
-  qc$server()
+  qc_vals <- qc$server()
+  
+  output$sql <- renderText({
+    qc_vals$sql()
+  })
 }
 
 shinyApp(ui, server)
