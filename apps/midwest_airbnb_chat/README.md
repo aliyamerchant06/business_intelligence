@@ -5,6 +5,7 @@
 ## Example Questions
 
 ### 1. Which Columbus neighbourhood has the priciest entire homes?
+<img width="1880" height="697" alt="Screenshot 2026-09-25 022313" src="https://github.com/user-attachments/assets/212ca8b7-3f2f-4012-bd37-f01c4fc5a6da" />
 
 ### 2. Do superhosts charge more per night than other hosts? Show it as a bar chart.
 
