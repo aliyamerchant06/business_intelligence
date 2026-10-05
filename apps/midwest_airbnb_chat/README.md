@@ -5,13 +5,10 @@
 ## Example Questions
 
 ### 1. Which Columbus neighbourhood has the priciest entire homes?
-<img width="1902" height="985" alt="Screenshot 2026-09-25 032851" src="https://github.com/user-attachments/assets/e354badb-d640-431a-915f-61b28d9926a3" />
 
-### 2. Do superhosts charge more per night than other hosts?
-<img width="1911" height="982" alt="Screenshot 2026-09-25 032954" src="https://github.com/user-attachments/assets/a3228a09-4def-4295-9d50-14a7e8608f63" />
+### 2. Do superhosts charge more per night than other hosts? Show it as a bar chart.
 
 ### 3. How many listings could host a party of ten?
-<img width="1917" height="992" alt="Screenshot 2026-09-25 033028" src="https://github.com/user-attachments/assets/a795c1a1-00b3-49af-872f-26f833b38aa7" />
 
 
 **Ask a question in plain English, get the SQL and a table back**
